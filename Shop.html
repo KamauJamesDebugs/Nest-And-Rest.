@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NEST AND REST.</title>
+  <link rel="icon" type="image/png" href="DUVET2.png" />
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background 0.5s ease-in-out, color 0.5s;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: #1a1a1a;
+      color: white;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-left: 10px;
+    }
+
+    /* Layout Themes */
+    body.luxury {
+      background: url('luxury-bg.jpg') no-repeat center center/cover;
+      color: white;
+    }
+
+    body.cozy {
+      background: #f8f1eb;
+      color: black;
+    }
+
+    .shop-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 50px;
+    }
+
+    .product {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+      width: 250px;
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .add-to-cart {
+      background: gold;
+      color: black;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s;
+    }
+
+    .add-to-cart:hover {
+      background: darkgoldenrod;
+    }
+
+    /* Dark Mode */
+    body.dark {
+      background: #121212;
+      color: white;
+    }
+
+    .dark .product {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    .dark .add-to-cart {
+      background: #f4d03f;
+      color: black;
+    }
+  </style>
+</head>
+
+<body class="cozy">
+  <header>
+    <div>
+      <h1>NEST AND REST.</h1>
+      <p>Luxury & Cozy Duvet Collection</p>
+    </div>
+    <div>
+      <button id="toggle-theme">Switch Layout</button>
+      <button id="toggle-mode">Dark Mode</button>
+    </div>
+    <div id="cart">
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p><strong>Total:</strong> KSH <span id="cart-total">0</span></p>
+      <button id="view-cart">View Cart</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="shop-container" id="products-container">
+      <!-- Products will load here dynamically -->
+    </div>
+  </main>
+
+  <script type="module" src="Shop.js"></script>
+</body>
+</html>

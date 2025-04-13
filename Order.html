@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Page</title>
+  <link rel="icon" type="image/png" href="DUVET2.png" />
+
+  <style>
+    /* Reset & base styles */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f3f3;
+    }
+
+    /* Container */
+    .order-container {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .order-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .order-container button {
+      display: block;
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    #openModal {
+      background-color: #3366ff;
+    }
+
+    #openModal:hover {
+      background-color: #264fd9;
+    }
+
+    .place-order-btn {
+      background-color: #ff9900;
+    }
+
+    .place-order-btn:hover {
+      background-color: #e68a00;
+    }
+
+    /* Modal Overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    /* Modal Content */
+    .modal {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .modal h3 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+
+    .modal form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal form input {
+      margin-bottom: 15px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .modal form button[type="submit"] {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .modal form button[type="submit"]:hover {
+      background-color: #218838;
+    }
+
+    .cancel-btn {
+      background-color: transparent;
+      color: #666;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .cancel-btn:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="order-container">
+    <h2>Your Order</h2>
+    <div class="order-container">
+
+      <!-- Cart Items List -->
+        <ul id="cart-items-list">
+          <!-- Cart items will be displayed here -->
+        </ul>
+    <button id="openModal">Fill In your Details</button>
+    <button id="placeOrderBtn" class="place-order-btn">Place Order</button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <h3>Customer Details</h3>
+      <form>
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="text" placeholder="Shipping Address" required />
+        <input type="tel" placeholder="Phone Number" required />
+
+        <button type="submit">Submit Order</button>
+        <button type="button" id="closeModal" class="cancel-btn">Cancel</button>
+      </form>
+    </div>
+  </div>
+  
+
+  <script>
+    const openBtn = document.getElementById('openModal');
+    const closeBtn = document.getElementById('closeModal');
+    const modal = document.getElementById('modal');
+
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+    </script>
+   
+   <!-- EmailJS SDK -->
+   <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("RbrxqYVg-tzdg-JFu"); // Replace with your EmailJS public key
+  })();
+</script>
+
+<script type="module" src="Order.js"></script>
+   <script type="module" src="Order.js"></script>
+   <p id="status-message"></p>
+</body>
+</html>

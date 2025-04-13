@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="icon" type="image/png" href="DUVET2.png">
+</head>
+<style>
+     body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8f1eb;
+        }
+        .payment-container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .total-amount {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            background: green;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: darkgreen;
+        }
+        .secure-message {
+            text-align: center;
+            font-size: 14px;
+            color: gray;
+            margin-top: 10px;
+        }
+</style>
+<body>
+
+    <div class="payment-container">
+        <h2>Complete Your Payment</h2>
+        <p class="total-amount">Total: KSH <span id="payment-total">0</span></p>
+
+        <label for="payment-method">Select Payment Method:</label>
+        <select id="payment-method">
+            <option value="card">Credit/Debit Card</option>
+            <option value="mpesa">M-Pesa</option>
+        </select>
+
+        <div id="card-details">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+            
+            <label for="expiry">Expiry Date:</label>
+            <input type="text" id="expiry" placeholder="MM/YY">
+            
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" placeholder="123">
+        </div>
+
+        <button id="pay-now">Pay Now</button>
+        <p class="secure-message">🔒 Secure Payment Processing</p>
+    </div>
+    
+
+    <script>
+        // Get the total from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const total = urlParams.get("total");
+        document.getElementById("payment-total").textContent = total;
+
+        // Handle payment method change
+        document.getElementById("payment-method").addEventListener("change", function() {
+            if (this.value === "mpesa") {
+                document.getElementById("card-details").style.display = "none";
+            } else {
+                document.getElementById("card-details").style.display = "block";
+            }
+        });
+
+        document.getElementById("pay-now").addEventListener("click", function() {
+            alert("Payment processing...");
+            // Here you can add real payment logic
+        });
+    </script>
+    <script type="module" src="payment.js"></script>
+</body>
+</html>

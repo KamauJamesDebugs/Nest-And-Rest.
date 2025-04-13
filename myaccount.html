@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/png" href="DUVET2.png">
+</head>
+<style>
+    /* Import luxury Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f4f0; /* Soft beige background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Stylish Account Card */
+.account-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    border: 2px solid #d1a374; /* Gold border */
+}
+
+/* User Profile Picture */
+#user-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #d1a374; /* Luxury gold */
+    margin-bottom: 10px;
+}
+
+/* Username Style */
+#user-name {
+    font-size: 24px;
+    font-weight: 600;
+    color: #3a3a3a;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Button Styling */
+.btn-logout {
+    background-color: #d1a374;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-logout :hover {
+    background-color: #b78c5d; /* Darker gold on hover */
+}
+</style>
+<body>
+    <div>
+        <p id="user-name"></p>
+        <img id="user-picture" alt="User Picture" />
+        <button type="Log out" class="btn-logout">Log out</button>
+    </div>
+
+    <script type="module" src="myaccount.js"></script>
+</body>
+</html>

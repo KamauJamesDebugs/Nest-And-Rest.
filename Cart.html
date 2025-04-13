@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="icon" type="image/png" href="DUVET2.png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8f1eb;
+        }
+        h1 {
+            text-align: center;
+        }
+        .cart-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: darkred;
+        }
+        .payment-btn {
+            background: green;
+            font-weight: bold;
+        }
+        .payment-btn:hover {
+            background: darkgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Your Cart</h1>
+    <div class="cart-container">
+        <ul id="cart-items"></ul>
+        <p><strong>Total:</strong> KSH <span id="cart-total">0</span></p>
+        <div class="buttons">
+            <button id="clear-cart">Clear Cart</button>
+            <button onclick="window.location.href='Shop.html'">Continue Shopping</button>
+            <button onclick="window.location.href='order.html'">Order</button>
+            <button class="payment-btn" id="proceed-to-payment">Proceed to Payment</button>
+        </div>
+    </div>
+    
+    <script type="module" src="Cart.js"></script> <!-- Link to your Cart.js -->
+    <script>
+        // Ensure cart functionality is implemented correctly
+        document.getElementById("proceed-to-payment").addEventListener("click", function() {
+            const total = document.getElementById("cart-total").textContent;
+            if (parseFloat(total) > 0) {
+                window.location.href = `payment.html?total=${total}`;
+            } else {
+                alert("Your cart is empty. Add items before proceeding to payment.");
+            }
+        });
+    </script>
+</body>
+</html>
